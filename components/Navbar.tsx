@@ -38,8 +38,10 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            {/* <NavbarButton variant="secondary">Login</NavbarButton> */}
-            <NavbarButton variant="primary">Get Started</NavbarButton>
+            {/* Use secondary variant for white text on dark background */}
+            <NavbarButton as="button" variant="secondary">
+              Get Started
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -69,6 +71,7 @@ export function NavbarDemo() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
+                as="button"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
@@ -76,6 +79,7 @@ export function NavbarDemo() {
                 Login
               </NavbarButton>
               <NavbarButton
+                as="button"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
@@ -86,17 +90,6 @@ export function NavbarDemo() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      <DummyContent />
-
-      {/* Navbar */}
     </div>
   );
 }
-
-const DummyContent = () => {
-  return (
-    <div className="container mx-auto p-8 pt-24">
-
-    </div>
-  );
-};
