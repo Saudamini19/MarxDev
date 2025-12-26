@@ -270,15 +270,12 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = ({ visible = true }: { visible?: boolean }) => {
   return (
-    <a
-      href="#"
-      className={cn(
-        "relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal transition-colors duration-300",
-        visible 
-          ? "text-[#525252] hover:text-gray-900 dark:text-gray-300 dark:hover:text-white" 
-          : "text-[#F2F5FA] hover:text-white dark:text-[#F2F5FA] dark:hover:text-white"
-      )}
-    >
+        <a
+        href="#"
+        className={cn(
+            "relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-[#F2F5FA] hover:text-white dark:text-[#F2F5FA] dark:hover:text-white transition-colors duration-300"
+        )}
+        >
       <img
         src="/favicon.ico"
         alt="logo"
