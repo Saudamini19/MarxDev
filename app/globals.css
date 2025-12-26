@@ -4,20 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-
-  --animate-aurora: aurora 60s linear infinite;
-  @keyframes aurora {
-    from {
-      background-position:
-        50% 50%,
-        50% 50%;
-    }
-    to {
-      background-position:
-        350% 50%,
-        350% 50%;
-    }
-  }
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -133,5 +119,19 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Fix for full-width layouts */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  #__next, main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
