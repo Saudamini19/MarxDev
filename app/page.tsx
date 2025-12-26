@@ -5,8 +5,8 @@ import { NavbarDemo } from "@/components/Navbar";
 export default function Home() {
   return (
     <main>
-      <DemoOne />
       <NavbarDemo></NavbarDemo>
+      <DemoOne />
     </main>
   );
 }
