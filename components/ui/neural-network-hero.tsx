@@ -150,7 +150,21 @@ const fragmentShader = `
   
   void main() {
     vec2 uv = vUv * 2.0 - 1.0; uv.y *= -1.0;
-    gl_FragColor = cppn_fn(uv, 0.1 * sin(0.3 * iTime), 0.1 * sin(0.69 * iTime), 0.1 * sin(0.44 * iTime));
+    // 1. Get the raw neural network output
+    vec4 rawOutput = cppn_fn(uv, 0.1 * sin(0.3 * iTime), 0.1 * sin(0.69 * iTime), 0.1 * sin(0.44 * iTime));
+    
+    // 2. Calculate the luminance (brightness) of the pattern
+    // This turns the multi-colored chaos into a black-and-white intensity map
+    float intensity = dot(rawOutput.rgb, vec3(0.299, 0.587, 0.114));
+    
+    // 3. Define your Hoodie Color (Teal/Cyan)
+    // I boosted the values slightly to make it glow on the dark background
+    vec3 hoodieColor = vec3(0.0, 0.75, 0.85); 
+    
+    // 4. Mix it!
+    // We multiply the color by the intensity. 
+    // The * 1.4 boosts the contrast a bit so it pops like the logo.
+    gl_FragColor = vec4(hoodieColor * intensity * 1.4, 1.0);
   }
 `;
 
