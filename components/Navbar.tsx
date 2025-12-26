@@ -86,17 +86,6 @@ export function NavbarDemo() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      <DummyContent />
-
-      {/* Navbar */}
     </div>
   );
 }
-
-const DummyContent = () => {
-  return (
-    <div className="container mx-auto p-8 pt-24">
-
-    </div>
-  );
-};

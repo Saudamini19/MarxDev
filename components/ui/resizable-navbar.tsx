@@ -14,6 +14,7 @@ import React, { useRef, useState } from "react";
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
+  initiallyVisible?: boolean; // Add this prop
 }
 
 interface NavBodyProps {
@@ -49,13 +50,17 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
-export const Navbar = ({ children, className }: NavbarProps) => {
+export const Navbar = ({ 
+  children, 
+  className, 
+  initiallyVisible = true // Default to true
+}: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(initiallyVisible); // Use prop
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 100) {
@@ -68,14 +73,13 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      // Changed from sticky to fixed and adjusted top position
       className={cn("fixed inset-x-0 top-0 z-50 w-full", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
+              { visible }
             )
           : child,
       )}
