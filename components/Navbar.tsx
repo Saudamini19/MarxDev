@@ -54,7 +54,12 @@ export function NavbarDemo() {
             }} 
           />
           <div className="flex items-center gap-4">
-            <NavbarButton as="button" variant="secondary" visible={visible}>
+            <NavbarButton 
+              as="button" 
+              variant="secondary" 
+              visible={false}
+              className="!text-white hover:!text-white"
+            >
               Get Started
             </NavbarButton>
           </div>

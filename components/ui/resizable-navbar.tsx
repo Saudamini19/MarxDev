@@ -311,7 +311,7 @@ export const NavbarButton = ({
   const variantStyles = {
     primary: cn(
       "bg-white shadow-[0_4px_20px_rgba(0,_0,_0,_0.1),_0_0_0_1px_rgba(255,_255,_255,_0.2)_inset]",
-      visible ? "text-[#525252] hover:text-gray-900" : "text-white hover:text-white"
+      "text-[#525252] hover:text-grey-900"
     ),
     secondary: cn(
       "bg-transparent shadow-none backdrop-blur-sm",

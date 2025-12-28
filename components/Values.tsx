@@ -45,9 +45,9 @@ export function ExpandableCardDemo() {
   }, [active]);
 
   return (
-    <div className="min-h-screen bg-[#000101] p-4 md:p-8">
-      {/* Title Section */}
-      <div className="max-w-2xl mx-auto mb-8 md:mb-12">
+    <div className="min-h-0 bg-[#000101] p-4 md:p-8">
+      {/* Title Section - Removed mx-auto, added ml-24 for large left margin */}
+      <div className="ml-12 md:ml-24 lg:ml-36 xl:ml-48 2xl:ml-73">
         <h1 className="text-left text-5xl font-extralight leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl">
           Core Values
         </h1>
@@ -124,7 +124,9 @@ export function ExpandableCardDemo() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full gap-4">
+      
+      {/* Cards List - Removed mx-auto, added ml-24 for large left margin */}
+      <ul className="ml-0 md:ml-24 lg:ml-36 xl:ml-48 2xl:ml-73 w-full gap-4">
         {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
