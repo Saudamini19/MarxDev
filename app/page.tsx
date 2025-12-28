@@ -3,6 +3,7 @@ import { NavbarDemo } from "@/components/Navbar";
 import {WobbleCardDemo} from "@/components/Cards"
 import VisionMissionSection from '@/components/VisionMissionSection';
 import {ExpandableCardDemo} from '@/components/Values'
+import TeamShowcaseDemo from '@/components/Team'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       </div>
       <VisionMissionSection />
       <ExpandableCardDemo />
+      <TeamShowcaseDemo />
     </main>
   );
 }
