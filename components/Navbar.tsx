@@ -29,17 +29,17 @@ export function NavbarDemo() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(false); // Add state for visibility
 
   return (
     <div className="relative w-full">
-      <Navbar>
+      <Navbar initiallyVisible={false} onVisibilityChange={setVisible}> {/* Pass callback */}
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            {/* Use secondary variant for white text on dark background */}
-            <NavbarButton as="button" variant="secondary">
+            <NavbarButton as="button" variant="secondary" visible={visible}>
               Get Started
             </NavbarButton>
           </div>

@@ -1,6 +1,7 @@
 import DemoOne from "@/components/Hero";
 import { NavbarDemo } from "@/components/Navbar";
 import {WobbleCardDemo} from "@/components/Cards"
+import VisionMissionSection from '@/components/VisionMissionSection';
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
           <WobbleCardDemo />
         </div>
       </div>
+      <VisionMissionSection />
+    
     </main>
   );
 }

@@ -14,6 +14,7 @@ interface NavbarProps {
   children: React.ReactNode;
   className?: string;
   initiallyVisible?: boolean;
+  onVisibilityChange?: (visible: boolean) => void; 
 }
 
 interface NavBodyProps {
@@ -53,7 +54,8 @@ interface MobileNavMenuProps {
 export const Navbar = ({ 
   children, 
   className, 
-  initiallyVisible = true
+  initiallyVisible = true,
+  onVisibilityChange // Add this
 }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
@@ -63,11 +65,9 @@ export const Navbar = ({
   const [visible, setVisible] = useState<boolean>(initiallyVisible);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 100) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
+    const newVisible = latest > 100;
+    setVisible(newVisible);
+    onVisibilityChange?.(newVisible); // Call the callback
   });
 
   return (
