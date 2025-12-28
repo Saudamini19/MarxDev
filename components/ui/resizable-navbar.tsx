@@ -7,8 +7,8 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
-
 import React, { useRef, useState } from "react";
+import Link from "next/link";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -29,7 +29,7 @@ interface NavItemsProps {
     link: string;
   }[];
   className?: string;
-  onItemClick?: () => void;
+  onItemClick?: (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string; link: string }) => void; 
   visible?: boolean;
 }
 
@@ -136,9 +136,9 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
       {items.map((item, idx) => (
         <a
           onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
+          onClick={(e) => onItemClick?.(e, item)} // Pass both event and item
           className={cn(
-            "relative px-4 py-2 transition-colors duration-300",
+            "relative px-4 py-2 transition-colors duration-300 cursor-pointer",
             visible 
               ? "text-[#525252] hover:text-gray-900 dark:text-gray-300 dark:hover:text-white" 
               : "text-[#F2F5FA] hover:text-white dark:text-[#F2F5FA] dark:hover:text-white"
@@ -270,12 +270,12 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = ({ visible = true }: { visible?: boolean }) => {
   return (
-        <a
-        href="#"
-        className={cn(
-            "relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-[#F2F5FA] hover:text-white dark:text-[#F2F5FA] dark:hover:text-white transition-colors duration-300"
-        )}
-        >
+    <Link 
+      href="/" 
+      className={cn(
+        "relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-[#F2F5FA] hover:text-white dark:text-[#F2F5FA] dark:hover:text-white transition-colors duration-300"
+      )}
+    >
       <img
         src="/favicon.ico"
         alt="logo"
@@ -284,7 +284,7 @@ export const NavbarLogo = ({ visible = true }: { visible?: boolean }) => {
         className="transition-opacity duration-300"
       />
       <span className="font-medium transition-colors duration-300">MarxDev</span>
-    </a>
+    </Link>
   );
 };
 

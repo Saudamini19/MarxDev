@@ -16,28 +16,43 @@ export function NavbarDemo() {
   const navItems = [
     {
       name: "About",
-      link: "#about",
+      link: "#about", // Hash link
     },
     {
       name: "Team",
-      link: "#team",
+      link: "#team", // Hash link
     },
     {
       name: "Our Journey",
-      link: "#journey",
+      link: "#journey", // Hash link
     },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [visible, setVisible] = useState(false); // Add state for visibility
+  const [visible, setVisible] = useState(false);
+
+  // Function to handle smooth scrolling to sections
+  const handleScrollTo = (hash: string) => {
+    const element = document.getElementById(hash.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <div className="relative w-full">
-      <Navbar initiallyVisible={false} onVisibilityChange={setVisible}> {/* Pass callback */}
+      <Navbar initiallyVisible={false} onVisibilityChange={setVisible}>
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={navItems} />
+          <NavItems 
+            items={navItems} 
+            onItemClick={(e: React.MouseEvent, item: typeof navItems[0]) => {
+              e.preventDefault();
+              handleScrollTo(item.link);
+            }} 
+          />
           <div className="flex items-center gap-4">
             <NavbarButton as="button" variant="secondary" visible={visible}>
               Get Started
@@ -60,14 +75,13 @@ export function NavbarDemo() {
             onClose={() => setIsMobileMenuOpen(false)}
           >
             {navItems.map((item, idx) => (
-              <a
+              <button
                 key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                onClick={() => handleScrollTo(item.link)}
+                className="relative w-full text-left text-neutral-600 dark:text-neutral-300 py-2"
               >
                 <span className="block">{item.name}</span>
-              </a>
+              </button>
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
