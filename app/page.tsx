@@ -2,8 +2,9 @@ import DemoOne from "@/components/Hero";
 import { NavbarDemo } from "@/components/Navbar";
 import {WobbleCardDemo} from "@/components/Cards"
 import VisionMissionSection from '@/components/VisionMissionSection';
-import {ExpandableCardDemo} from '@/components/Values'
-import TeamShowcaseDemo from '@/components/Team'
+import {ExpandableCardDemo} from '@/components/Values';
+import TeamShowcaseDemo from '@/components/Team';
+import {TimelineDemo} from '@/components/Journey'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <VisionMissionSection />
       <ExpandableCardDemo />
       <TeamShowcaseDemo />
+      <TimelineDemo />
     </main>
   );
 }
