@@ -213,13 +213,13 @@ const cards = [
     },
   },
   {
-    description: "Radical candor and ownership",
-    title: "Integrity",
-    src: "/Integrity.png",
+    description: "Clarity over comfort",
+    title: "Open Communication",
+    src: "/OpenCommunication.png",
     content: () => {
       return (
         <p className="text-black">
-          In a system with complex logic and distinct subsystems (like separating UI from Application Logic), small secrets cause big bugs. We operate with total transparency because it is the only way to move fast without breaking things.
+          We believe honest communication is essential for staying aligned. We actively ensure that every opinion is heard and address concerns openly to maintain strong team cohesion.
         </p>
       );
     },
@@ -238,13 +238,25 @@ const cards = [
     },
   },
   {
-    description: "Craftsmanship in every commit",
-    title: "Excellence",
-    src: "/Excellence.png",
+    description: "Purpose over process",
+    title: "Impact Driven",
+    src: "/ImpactDriven.png",
     content: () => {
       return (
         <p className="text-black">
-          We are building a tool for architects who care about precision. That means we have to care about precision even more. We take personal pride in the quality of our work, realizing that &#34;good enough&#34; usually isn&#39;t.
+          Our primary motivation is to create a positive, meaningful impact for our end users and stakeholders. This purpose guides us through the noise to achieve successful outcomes.
+        </p>
+      );
+    },
+  },
+  {
+    description: "Ownership over oversight",
+    title: "Accountability",
+    src: "/Accountability.jpeg",
+    content: () => {
+      return (
+        <p className="text-black">
+          Each team member takes full ownership of their tasks. Being accountable is how we maintain a sustainable development process and ensure the absolute quality of our work.
         </p>
       );
     },
