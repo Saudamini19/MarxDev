@@ -11,6 +11,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { ComingSoonModal } from "@/components/ui/coming-soon-modal";
 
 export function NavbarDemo() {
   const navItems = [
@@ -30,6 +31,7 @@ export function NavbarDemo() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Function to handle smooth scrolling to sections
   const handleScrollTo = (hash: string) => {
@@ -54,11 +56,12 @@ export function NavbarDemo() {
             }} 
           />
           <div className="flex items-center gap-4">
-            <NavbarButton 
-              as="button" 
-              variant="secondary" 
+            <NavbarButton
+              as="button"
+              variant="secondary"
               visible={false}
               className="!text-white hover:!text-white"
+              onClick={() => setIsModalOpen(true)}
             >
               Get Started
             </NavbarButton>
@@ -109,6 +112,8 @@ export function NavbarDemo() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
+
+      <ComingSoonModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

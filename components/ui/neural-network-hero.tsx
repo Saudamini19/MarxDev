@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import * as THREE from 'three';
@@ -8,6 +8,7 @@ import * as THREE from 'three';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import { ComingSoonModal } from './coming-soon-modal';
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -258,6 +259,7 @@ export default function Hero({
   ],
   microDetails = ["Low‑weight font", "Tight tracking", "Subtle motion"]
 }: HeroProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
   const headerRef = useRef<HTMLHeadingElement | null>(null);
   const paraRef = useRef<HTMLParagraphElement | null>(null);
@@ -356,9 +358,12 @@ export default function Hero({
 
         <div ref={ctaRef} className="flex flex-wrap items-center gap-3 pt-2">
           {ctaButtons.map((button, index) => (
-            <a
+            <button
               key={index}
-              href={button.href}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsModalOpen(true);
+              }}
               className={`rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${
                 button.primary
                   ? "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
@@ -366,7 +371,7 @@ export default function Hero({
               }`}
             >
               {button.text}
-            </a>
+            </button>
           ))}
         </div>
 
@@ -383,6 +388,8 @@ export default function Hero({
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
+
+      <ComingSoonModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

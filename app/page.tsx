@@ -4,7 +4,8 @@ import {WobbleCardDemo} from "@/components/Cards"
 import VisionMissionSection from '@/components/VisionMissionSection';
 import {ExpandableCardDemo} from '@/components/Values';
 import TeamShowcaseDemo from '@/components/Team';
-import {TimelineDemo} from '@/components/Journey'
+import {TimelineDemo} from '@/components/Journey';
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <ExpandableCardDemo />
       <TeamShowcaseDemo />
       <TimelineDemo />
+      <Footer />
     </main>
   );
 }
