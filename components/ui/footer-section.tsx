@@ -30,12 +30,13 @@ function Footerdemo() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm"
+                className="pr-12 backdrop-blur-sm text-black"
               />
               <Button
                 type="submit"
                 size="icon"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+                className="absolute right-1 top-1 h-8 w-8 rounded-full text-white transition-transform hover:scale-105"
+                style={{ backgroundColor: '#004750' }}
               >
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Subscribe</span>
@@ -52,7 +53,7 @@ function Footerdemo() {
               <a href="#about" className="block transition-colors hover:text-gray-400">
                 About Us
               </a>
-              <a href="#" className="block transition-colors hover:text-gray-400">
+              <a href="/impressum" className="block transition-colors hover:text-gray-400">
                 Impressum
               </a>
             </nav>
