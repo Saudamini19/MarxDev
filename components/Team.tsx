@@ -51,7 +51,10 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   return (
     <section
       id="team"
-      className={`w-full min-h-screen bg-gradient-to-b from-[#000101] to-[#004850] text-white py-16 px-4 md:px-8 ${className}`}
+      className={`w-full min-h-screen text-white py-16 px-4 md:px-8 ${className}`}
+      style={{
+        background: 'linear-gradient(to bottom, #000000 0%, #004249 100%)',
+      }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header Section - Left Aligned */}
