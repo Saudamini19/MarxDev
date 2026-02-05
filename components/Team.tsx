@@ -1,6 +1,6 @@
 'use client';
 import * as React from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 // TypeScript interface for each team member
 interface TeamMember {
@@ -23,17 +23,6 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   members,
   className = "",
 }) => {
-  // Animation variants for the container to stagger children
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   // Animation variants for each card
   const cardVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
@@ -51,7 +40,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   return (
     <section
       id="team"
-      className={`w-full min-h-screen text-white py-16 px-4 md:px-8 ${className}`}
+      className={`w-full text-white pt-16 pb-8 px-4 md:px-8 overflow-x-clip ${className}`}
       style={{
         background: 'linear-gradient(to bottom, #000000 0%, #004249 100%)',
       }}
@@ -67,12 +56,10 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         {/* Members Showcase Section */}
         <motion.div
           className="w-full flex justify-start items-end gap-4 md:gap-6 px-4 overflow-x-auto pt-5"
-          variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <AnimatePresence>
-            {members.map((member, index) => (
+          {members.map((member, index) => (
               <motion.a
                 key={member.name}
                 href={member.linkedIn}
@@ -99,7 +86,6 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
                 </div>
               </motion.a>
             ))}
-          </AnimatePresence>
         </motion.div>
       </div>
     </section>

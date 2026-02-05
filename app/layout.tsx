@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
-      <body>{children}</body>
+      <body className="overflow-x-hidden w-full">{children}</body>
     </html>
   );
 }

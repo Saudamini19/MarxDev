@@ -1,7 +1,6 @@
 import * as React from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { cn } from "@/lib/utils"; // Assuming you have a utility for class names
-import { Button } from "@/components/ui/button"; // Assuming a shadcn button component
 
 // TypeScript interface for each team member
 interface TeamMember {
@@ -14,8 +13,6 @@ interface TeamMember {
 // Props for the main component
 interface TeamShowcaseProps {
   title?: string;
-  description?: string;
-  buttonText?: string;
   members: TeamMember[];
   className?: string; // Fix for Error 1
 }
@@ -24,8 +21,6 @@ const TeamShowcase = React.forwardRef<HTMLDivElement, TeamShowcaseProps>(
   (
     {
       title = "Meet The Team",
-      description = "Why wasting time on so many different platforms for searching, interviewing and find out that it's not a good fit? We do all of these for you. No more back and forth. Get matched today.",
-      buttonText = "FIND YOUR DEVELOPER",
       members,
       className,
       ...props
@@ -60,7 +55,7 @@ const TeamShowcase = React.forwardRef<HTMLDivElement, TeamShowcaseProps>(
     return (
       <section id="team"
         ref={ref}
-        className={cn("w-full bg-background text-foreground py-16 px-4 md:px-8", className)}
+        className={cn("w-full bg-background text-foreground pt-16 pb-8 px-4 md:px-8", className)}
         {...props}
       >
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
@@ -69,8 +64,6 @@ const TeamShowcase = React.forwardRef<HTMLDivElement, TeamShowcaseProps>(
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
               {title}
             </h1>
-            <p className="text-muted-foreground mb-8">{description}</p>
-            <Button size="lg">{buttonText}</Button>
           </div>
 
           {/* Members Showcase Section */}

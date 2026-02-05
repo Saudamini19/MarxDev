@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function VisionMissionSection() {
   return (
-    <section className="relative min-h-screen w-full py-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-screen w-full pt-20 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Smooth Gradient Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* Main gradient */}
@@ -83,7 +83,7 @@ export default function VisionMissionSection() {
             </div>
 
             {/* Content */}
-            <div className="relative p-8">
+            <div className="relative p-8 pb-6">
               <h2 className="mb-6 text-4xl font-light tracking-tight text-white sm:text-5xl">
                 Vision
               </h2>
@@ -136,7 +136,7 @@ export default function VisionMissionSection() {
             </div>
 
             {/* Content */}
-            <div className="relative p-8">
+            <div className="relative p-8 pb-6">
               <h2 className="mb-6 text-4xl font-light tracking-tight text-white sm:text-5xl">
                 Mission
               </h2>

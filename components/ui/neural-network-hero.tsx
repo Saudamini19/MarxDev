@@ -207,13 +207,11 @@ function ShaderBackground() {
       
       gsap.set(canvasRef.current, {
         filter: 'blur(20px)',
-        scale: 1.1,
         autoAlpha: 0.7
       });
-      
+
       gsap.to(canvasRef.current, {
         filter: 'blur(0px)',
-        scale: 1,
         autoAlpha: 1,
         duration: 1.5,
         ease: 'power3.out',

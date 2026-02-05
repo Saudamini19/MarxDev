@@ -118,9 +118,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: #000000;
   }
-  
+
   /* Fix for full-width layouts */
   html, body {
     margin: 0;
@@ -128,7 +129,7 @@
     width: 100%;
     overflow-x: hidden;
   }
-  
+
   #__next, main {
     width: 100%;
     margin: 0;
