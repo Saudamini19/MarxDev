@@ -355,22 +355,42 @@ export default function Hero({
         </p>
 
         <div ref={ctaRef} className="flex flex-wrap items-center gap-3 pt-2">
-          {ctaButtons.map((button, index) => (
-            <button
-              key={index}
-              onClick={(e) => {
-                e.preventDefault();
-                setIsModalOpen(true);
-              }}
-              className={`rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${
-                button.primary
-                  ? "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
-                  : "text-white/80 hover:bg-white/5"
-              }`}
-            >
-              {button.text}
-            </button>
-          ))}
+          {ctaButtons.map((button, index) => {
+            const isExternal = button.href.startsWith('http');
+            if (isExternal) {
+              return (
+                <a
+                  key={index}
+                  href={button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${
+                    button.primary
+                      ? "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+                      : "text-white/80 hover:bg-white/5"
+                  }`}
+                >
+                  {button.text}
+                </a>
+              );
+            }
+            return (
+              <button
+                key={index}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalOpen(true);
+                }}
+                className={`rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${
+                  button.primary
+                    ? "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+                    : "text-white/80 hover:bg-white/5"
+                }`}
+              >
+                {button.text}
+              </button>
+            );
+          })}
         </div>
 
         <ul ref={microRef} className="mt-8 flex flex-wrap gap-6 text-xs font-extralight tracking-tight text-white/60">

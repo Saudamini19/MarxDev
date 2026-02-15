@@ -9,7 +9,7 @@ export default function DemoOne() {
       badgeLabel="Beta"
       ctaButtons={[
         { text: "Start Building", href: "#get-started", primary: true },
-        { text: "Watch Demo", href: "#showcase" }
+        { text: "Watch Demo", href: "https://www.linkedin.com/feed/update/urn:li:activity:7419307752017051648" }
       ]}
       microDetails={["AI assistance", "Realtime Validation", "Cost Modeling"]}
     />
