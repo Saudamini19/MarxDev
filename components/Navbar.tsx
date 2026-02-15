@@ -11,6 +11,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { ComingSoonModal } from "@/components/ui/coming-soon-modal";
 
 export function NavbarDemo() {
@@ -33,11 +34,18 @@ export function NavbarDemo() {
   const [visible, setVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const pathname = usePathname();
+  const router = useRouter();
+
   // Function to handle smooth scrolling to sections
   const handleScrollTo = (hash: string) => {
-    const element = document.getElementById(hash.replace('#', ''));
+    const id = hash.replace('#', '');
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else if (pathname !== '/') {
+      // Navigate to home page with the hash so it scrolls after load
+      router.push(`/${hash}`);
     }
     setIsMobileMenuOpen(false);
   };

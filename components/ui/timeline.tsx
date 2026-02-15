@@ -34,16 +34,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-gradient-to-b from-[#004249] to-black font-sans md:px-10"
+      className="w-full bg-gradient-to-b from-[#004249] to-black font-sans px-6 md:px-16 lg:px-24 xl:px-[151px]"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+      <div className="py-20">
         <h2 className="text-left text-5xl font-extralight leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl mb-4 max-w-4xl">
           Follow Our Journey Here
         </h2>
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
           <div
             key={`timeline-${item.title}-${index}`}

@@ -9,6 +9,7 @@ interface TeamMember {
   imageSrc: string;
   themeColor: string;
   linkedIn: string;
+  textPadding?: string;
 }
 
 // Props for the main component
@@ -40,9 +41,11 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   return (
     <section
       id="team"
-      className={`w-full text-white pt-16 pb-8 px-4 md:px-8 overflow-x-clip ${className}`}
+      className={`w-full text-white pt-16 pb-8 overflow-x-clip ${className}`}
       style={{
         background: 'linear-gradient(to bottom, #000000 0%, #004249 100%)',
+        paddingLeft: 'clamp(41px, 10.5vw, 151px)',
+        paddingRight: 'clamp(41px, 10.5vw, 151px)',
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -55,7 +58,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
 
         {/* Members Showcase Section */}
         <motion.div
-          className="w-full flex justify-start items-end gap-4 md:gap-6 px-4 overflow-x-auto pt-5"
+          className="w-full grid grid-cols-1 gap-4 pt-5 md:flex md:justify-start md:items-end md:gap-6 md:overflow-x-auto md:[scrollbar-width:none] md:[-ms-overflow-style:none] md:[&::-webkit-scrollbar]:hidden"
           initial="hidden"
           animate="visible"
         >
@@ -65,22 +68,22 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
                 href={member.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full max-w-[200px] md:max-w-[250px] cursor-pointer"
+                className="w-full md:max-w-[250px] cursor-pointer"
                 variants={cardVariants}
                 whileHover={{ y: -10, scale: 1.05, zIndex: 40 }}
                 style={{ zIndex: members.length - index }}
               >
                 <div
-                  className={`relative pt-8 pb-4 px-4 rounded-t-[50%] h-[280px] md:h-[350px] flex flex-col items-center justify-between text-center overflow-hidden ${member.themeColor}`}
+                  className={`relative ${member.textPadding || 'px-11'} rounded-3xl md:rounded-t-[50%] md:rounded-b-none md:h-[350px] flex flex-col items-center text-center overflow-hidden ${member.themeColor}`}
                 >
-                  <div className="text-black">
+                  <div className="text-black pt-6 pb-2 md:pt-8 md:pb-4">
                     <h3 className="font-bold text-sm md:text-base">{member.name}</h3>
                     <p className="text-xs md:text-sm opacity-80">{member.role}</p>
                   </div>
                   <img
                     src={member.imageSrc}
                     alt={member.name}
-                    className="absolute bottom-0 left-0 w-full h-auto object-cover object-bottom"
+                    className="w-full h-auto object-cover object-bottom mt-auto md:absolute md:bottom-0 md:left-0"
                     style={{ maxHeight: "85%" }}
                   />
                 </div>
@@ -100,6 +103,7 @@ const developers: TeamMember[] = [
     imageSrc: "/AmamiAlias.png",
     themeColor: "bg-[#FEFCF7]",
     linkedIn: "https://www.linkedin.com/in/amami-uduwana-3b3b46172/",
+    textPadding: "px-6",
   },
   {
     name: "PABASARA",

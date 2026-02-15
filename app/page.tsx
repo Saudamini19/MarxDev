@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative w-full max-w-full overflow-x-hidden">
+    <main className="relative w-full max-w-full">
       <NavbarDemo />
       <DemoOne />
 
@@ -21,7 +21,9 @@ export default function Home() {
       <VisionMissionSection />
       <ExpandableCardDemo />
       <TeamShowcaseDemo />
-      <TimelineDemo />
+      <div id="journey">
+        <TimelineDemo />
+      </div>
       <Footer />
     </main>
   );
