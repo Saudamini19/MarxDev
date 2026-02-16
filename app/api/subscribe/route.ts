@@ -25,6 +25,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: `"Marx.Dev" <${process.env.GMAIL_USER}>`,
       to: email,
+      bcc: process.env.GMAIL_USER,
       subject: "Welcome to Marx.Dev!",
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
