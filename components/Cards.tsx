@@ -37,22 +37,23 @@ export function WobbleCardDemo() {
         </div>
       </WobbleCard>
       <WobbleCard containerClassName="col-span-1 bg-pink lg:col-span-3 xl:min-h-[300px]">
-        <div className="max-w-lg relative z-10">
- {/* Increased from max-w-sm to max-w-lg */}
-          <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-            What we do
-          </h2>
-          <p className="mt-4 text-left text-base/6 text-neutral-200">
-            Think of us as the &quot;Autocorrect&quot; for software architecture. You simply describe your idea to our AI, and it instantly draws a perfect, error-free blueprint for you.
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
+          <div className="max-w-sm relative z-10 shrink-0">
+            <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+              What we do
+            </h2>
+            <p className="mt-4 text-left text-base/6 text-neutral-200">
+              Think of us as the &quot;Autocorrect&quot; for software architecture. You simply describe your idea to our AI, and it instantly draws a perfect, error-free blueprint for you.
+            </p>
+          </div>
+          <img
+            src="/Editor.jpeg"
+            width={500}
+            height={500}
+            alt="linear demo image"
+            className="hidden lg:block object-contain rounded-2xl mt-4 lg:mt-0"
+          />
         </div>
-        <img
-          src="/Editor.jpeg"
-          width={500}
-          height={500}
-          alt="linear demo image"
-          className="absolute -right-10 md:-right-[40%] lg:-right-[20%] hidden lg:block top-8 md:top-16 lg:top-24 -bottom-10 object-contain rounded-2xl"
-        />
       </WobbleCard>
     </div>
   );

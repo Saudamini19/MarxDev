@@ -24,6 +24,9 @@ export default function Home() {
       <div id="journey">
         <TimelineDemo />
       </div>
+      <div></div>
+      <div></div>
+      <div></div>
       <Footer />
     </main>
   );

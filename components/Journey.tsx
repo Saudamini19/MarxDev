@@ -114,7 +114,7 @@ export function TimelineDemo() {
               Completed and submitted the January milestone report
             </div>
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              🎉Won Pitch 3: Secured our first victory with our refined AI business strategy.🎉
+              🎉 Won Pitch 3: Secured our first victory with our refined AI business strategy. 🎉
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">

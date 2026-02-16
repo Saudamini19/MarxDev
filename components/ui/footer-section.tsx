@@ -12,10 +12,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter, X } from "lucide-react"
 
 function Footerdemo() {
   const [isChatOpen, setIsChatOpen] = React.useState(false)
+  const [isPrivacyOpen, setIsPrivacyOpen] = React.useState(false)
 
   return (
     <footer className="relative border-t bg-black text-white transition-colors duration-300 font-light tracking-tight overflow-hidden">
@@ -108,15 +109,64 @@ function Footerdemo() {
             © 2026 Marx.Dev All rights reserved.
           </p>
           <nav className="flex gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary">
+            <button
+              onClick={() => setIsPrivacyOpen(true)}
+              className="transition-colors hover:text-primary"
+            >
               Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Cookie Settings
-            </a>
+            </button>
           </nav>
         </div>
       </div>
+
+      {/* Privacy Policy Modal */}
+      {isPrivacyOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          onClick={() => setIsPrivacyOpen(false)}
+        >
+          <div
+            className="relative mx-4 max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-8 text-black shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsPrivacyOpen(false)}
+              className="absolute right-4 top-4 rounded-full p-1 transition-colors hover:bg-gray-100"
+            >
+              <X className="h-5 w-5" />
+              <span className="sr-only">Close</span>
+            </button>
+
+            <h2 className="mb-1 text-2xl font-semibold">Privacy Policy</h2>
+            <p className="mb-6 text-sm text-gray-500">Last Updated: February 2026</p>
+
+            <section className="mb-5">
+              <h3 className="mb-2 text-lg font-medium">Data Collection &amp; Use</h3>
+              <p className="text-sm leading-relaxed text-gray-700">
+                We only collect information that you voluntarily provide to us. Currently, this is limited to your email address when you opt-in to our newsletter or request updates.
+              </p>
+            </section>
+
+            <section className="mb-5">
+              <h3 className="mb-2 text-lg font-medium">How We Use Your Data</h3>
+              <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed text-gray-700">
+                <li>To send you the news, updates, and information you requested.</li>
+                <li>To respond to your direct inquiries.</li>
+              </ul>
+              <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                We never sell, rent, or trade your email address with third parties for marketing purposes.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="mb-2 text-lg font-medium">Data Storage</h3>
+              <p className="text-sm leading-relaxed text-gray-700">
+                Your email is stored securely with our email service provider and is kept only for as long as you remain a subscriber. You can click &quot;Unsubscribe&quot; at any time to have your data permanently deleted from our mailing list.
+              </p>
+            </section>
+          </div>
+        </div>
+      )}
     </footer>
   )
 }
