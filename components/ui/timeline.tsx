@@ -15,14 +15,26 @@ interface TimelineEntry {
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const lastCircleRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref]);
+    const updateHeight = () => {
+      if (ref.current && lastCircleRef.current) {
+        const containerRect = ref.current.getBoundingClientRect();
+        const circleRect = lastCircleRef.current.getBoundingClientRect();
+        setHeight(circleRect.top - containerRect.top + circleRect.height / 2);
+      }
+    };
+
+    updateHeight();
+
+    // Recalculate when layout shifts (e.g. images loading)
+    const observer = new ResizeObserver(updateHeight);
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -34,9 +46,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-gradient-to-b from-[#004249] to-black font-sans px-6 md:px-16 lg:px-24 xl:px-[151px]"
+      className="w-full bg-gradient-to-b from-[#004249] to-black font-sans"
+      style={{ paddingLeft: 'clamp(41px, 10.5vw, 151px)', paddingRight: 'clamp(41px, 10.5vw, 151px)' }}
       ref={containerRef}
     >
+      <div className="mx-auto max-w-7xl">
       <div className="py-20">
         <h2 className="text-left text-5xl font-extralight leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl mb-4 max-w-4xl">
           Follow Our Journey Here
@@ -50,7 +64,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="flex justify-start pt-10 md:pt-2 md:gap-10"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
+              <div
+                ref={index === data.length - 1 ? lastCircleRef : undefined}
+                className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center"
+              >
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
               <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-extralight text-white">
@@ -70,7 +87,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_100%)] "
         >
           <motion.div
             style={{
@@ -80,6 +97,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-black via-[#004850] to-transparent from-[0%] via-[10%] rounded-full"
           />
         </div>
+      </div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function VisionMissionSection() {
   return (
-    <section className="relative min-h-screen w-full pt-20 pb-8 overflow-hidden" style={{ paddingLeft: 'clamp(41px, 10.5vw, 151px)', paddingRight: 'clamp(41px, 10.5vw, 151px)' }}>
+    <section className="relative w-full pt-20 pb-8 overflow-hidden" style={{ paddingLeft: 'clamp(41px, 10.5vw, 151px)', paddingRight: 'clamp(41px, 10.5vw, 151px)' }}>
       {/* Smooth Gradient Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* Main gradient */}

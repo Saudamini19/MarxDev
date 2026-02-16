@@ -13,8 +13,8 @@ export default function Home() {
       <NavbarDemo />
       <DemoOne />
 
-      <div id="about" className="min-h-screen bg-gradient-to-b from-black via-[#001116] via-40% to-[#004A53] p-8 flex flex-col items-center justify-center">
-        <div className="w-full max-w-6xl mx-auto">
+      <div id="about" className="min-h-screen bg-gradient-to-b from-black via-[#001116] via-40% to-[#004A53] py-8 flex flex-col items-center justify-center" style={{ paddingLeft: 'clamp(41px, 10.5vw, 151px)', paddingRight: 'clamp(41px, 10.5vw, 151px)' }}>
+        <div className="w-full max-w-7xl mx-auto">
           <WobbleCardDemo />
         </div>
       </div>

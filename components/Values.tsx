@@ -46,6 +46,7 @@ export function ExpandableCardDemo() {
 
   return (
     <div className="min-h-0 bg-[#000101] pt-2 pb-4 md:pt-4 md:pb-8 overflow-hidden" style={{ paddingLeft: 'clamp(41px, 10.5vw, 151px)', paddingRight: 'clamp(41px, 10.5vw, 151px)' }}>
+      <div className="mx-auto max-w-7xl">
       {/* Title Section */}
       <div>
         <h1 className="text-left text-5xl font-extralight leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl">
@@ -162,6 +163,7 @@ export function ExpandableCardDemo() {
           </motion.div>
         ))}
       </ul>
+      </div>
     </div>
   );
 }
