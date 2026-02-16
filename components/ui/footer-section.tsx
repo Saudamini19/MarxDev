@@ -12,11 +12,46 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter, X } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Loader2, Moon, Send, Sun, Twitter, X } from "lucide-react"
 
 function Footerdemo() {
   const [isChatOpen, setIsChatOpen] = React.useState(false)
   const [isPrivacyOpen, setIsPrivacyOpen] = React.useState(false)
+  const [email, setEmail] = React.useState("")
+  const [status, setStatus] = React.useState<"idle" | "loading" | "success" | "error">("idle")
+  const [message, setMessage] = React.useState("")
+
+  async function handleSubscribe(e: React.FormEvent) {
+    e.preventDefault()
+    setStatus("loading")
+    setMessage("")
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        setStatus("error")
+        setMessage(data.error || "Something went wrong.")
+        return
+      }
+
+      setStatus("success")
+      setMessage("You're subscribed! Check your inbox.")
+      setEmail("")
+      setTimeout(() => {
+        setStatus("idle")
+        setMessage("")
+      }, 5000)
+    } catch {
+      setStatus("error")
+      setMessage("Network error. Please try again.")
+    }
+  }
 
   return (
     <footer className="relative border-t bg-black text-white transition-colors duration-300 font-light tracking-tight overflow-hidden">
@@ -27,22 +62,35 @@ function Footerdemo() {
             <p className="mb-6 text-white/75 font-light">
               Building intelligent digital products and AI solutions that empower innovation and efficiency.
             </p>
-            <form className="relative">
+            <form className="relative" onSubmit={handleSubscribe}>
               <Input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="pr-12 backdrop-blur-sm text-black"
               />
               <Button
                 type="submit"
                 size="icon"
+                disabled={status === "loading"}
                 className="absolute right-1 top-1 h-8 w-8 rounded-full text-white transition-transform hover:scale-105"
                 style={{ backgroundColor: '#004750' }}
               >
-                <Send className="h-4 w-4" />
+                {status === "loading" ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4" />
+                )}
                 <span className="sr-only">Subscribe</span>
               </Button>
             </form>
+            {message && (
+              <p className={`mt-2 text-sm ${status === "error" ? "text-red-400" : ""}`} style={status === "success" ? { color: "#003F46" } : undefined}>
+                {message}
+              </p>
+            )}
             <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
           <div>
