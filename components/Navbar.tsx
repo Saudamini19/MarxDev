@@ -79,7 +79,11 @@ export function NavbarDemo() {
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
-            <NavbarLogo />
+            <NavbarLogo onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setIsMobileMenuOpen(false);
+            }} />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -94,7 +98,7 @@ export function NavbarDemo() {
               <button
                 key={`mobile-link-${idx}`}
                 onClick={() => handleScrollTo(item.link)}
-                className="relative w-full text-left text-neutral-600 dark:text-neutral-300 py-2"
+                className="relative w-full text-left text-white/90 hover:text-white py-2"
               >
                 <span className="block">{item.name}</span>
               </button>
@@ -102,19 +106,20 @@ export function NavbarDemo() {
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
                 as="button"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    const footer = document.querySelector('footer input');
+                    if (footer) {
+                      footer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      (footer as HTMLInputElement).focus({ preventScroll: true });
+                    }
+                  }, 300);
+                }}
                 variant="primary"
                 className="w-full"
               >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                as="button"
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
+                Get Started
               </NavbarButton>
             </div>
           </MobileNavMenu>
