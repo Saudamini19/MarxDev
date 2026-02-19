@@ -175,8 +175,8 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         paddingLeft: visible ? "12px" : "0px",
         borderRadius: "2rem",
         y: visible ? 20 : 10,
-        background: visible 
-          ? "linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%)" 
+        background: visible
+          ? "linear-gradient(135deg, rgba(10, 15, 20, 0.85) 0%, rgba(10, 15, 20, 0.75) 100%)"
           : "transparent",
       }}
       transition={{
@@ -186,8 +186,8 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       }}
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden",
-        // Liquid glass effect
-        visible && "bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl border border-white/20",
+        // Dark glass effect
+        visible && "bg-gradient-to-br from-gray-900/80 to-gray-900/70 backdrop-blur-xl border border-white/20",
         "before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:content-[''] before:pointer-events-none",
         className,
       )}
@@ -227,9 +227,9 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-3xl bg-gradient-to-br from-white/20 to-white/5 px-4 py-8 backdrop-blur-xl",
-            "border border-white/20 shadow-[0_8px_32px_rgba(0,_0,_0,_0.1),_0_0_0_1px_rgba(255,_255,_255,_0.1)_inset]",
-            "before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:content-[''] before:pointer-events-none",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-900/85 px-4 py-8 backdrop-blur-xl",
+            "border border-white/20 shadow-[0_8px_32px_rgba(0,_0,_0,_0.3),_0_0_0_1px_rgba(255,_255,_255,_0.1)_inset]",
+            "before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-r before:from-transparent before:via-white/5 before:to-transparent before:content-[''] before:pointer-events-none",
             className,
           )}
         >
