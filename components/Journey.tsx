@@ -102,7 +102,7 @@ export function TimelineDemo() {
         <div>
           <div className="mb-8 text-xs font-extralight text-white md:text-sm space-y-2">
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              Finalized the Next.js and JointJS stack and WAMflow architecture.
+              Finalized the React + Vite and ReactFlow stack and WAMflow architecture.
             </div>
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
               Finished the Validator and Exporter for JSON, PNG, and XML
@@ -138,16 +138,13 @@ export function TimelineDemo() {
               Finalized the COST model engine to calculate operational overhead and locked all core project aspects.
             </div>
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              Currently synthesizing technical milestones into the February Progress Report for stakeholder review.
+              Completed the February Progress Report and submitted for review.
             </div>
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              Orchestrating the final pitch deck to showcase our blueprint for federated AI architectures.
+              Final Pitch Prepration: Polishing our strategy and prepping for the product launch.
             </div>
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              Executing a cosmetic sprint to polish the Next.js/React interface for a premium user experience.
-            </div>
-            <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              Optimizing the LLM interaction layer for smart, description-based system drawing.
+              Ready to go into code freeze.
             </div>
           </div>
           {/* <div className="grid grid-cols-2 gap-4">
