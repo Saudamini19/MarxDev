@@ -99,7 +99,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
 const developers: TeamMember[] = [
   {
     name: "AMAMI",
-    role: "Systems Architect",
+    role: "AI Integration Engineer",
     imageSrc: "/AmamiAlias.png",
     themeColor: "bg-[#FEFCF7]",
     linkedIn: "https://www.linkedin.com/in/amami-uduwana-3b3b46172/",
@@ -114,14 +114,14 @@ const developers: TeamMember[] = [
   },
   {
     name: "SAMRAT",
-    role: "AI Integration Engineer",
+    role: "Technical Backend Lead",
     imageSrc: "/SamratAlias.png",
     themeColor: "bg-[#FDEACC]",
     linkedIn: "https://www.linkedin.com/in/samrat-kamthe-a62545246/",
   },
   {
     name: "SANDEEP",
-    role: "Frontend Application Developer",
+    role: "Frontend Application Dev",
     imageSrc: "/SandeepAlias.png",
     themeColor: "bg-[#EAE1DA]",
     linkedIn: "https://www.linkedin.com/in/sandeep-shankar-dhange/",

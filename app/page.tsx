@@ -6,6 +6,7 @@ import {ExpandableCardDemo} from '@/components/Values';
 import TeamShowcaseDemo from '@/components/Team';
 import {TimelineDemo} from '@/components/Journey';
 import { Footer } from "@/components/Footer";
+import Pricing from "@/components/Pricing";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       </div>
       <VisionMissionSection />
       <ExpandableCardDemo />
+      <Pricing />
       <TeamShowcaseDemo />
       <div id="journey">
         <TimelineDemo />
