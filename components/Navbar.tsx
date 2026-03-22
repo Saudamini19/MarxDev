@@ -28,6 +28,10 @@ export function NavbarDemo() {
       name: "Our Journey",
       link: "#journey", // Hash link
     },
+    {
+      name: "Pricing",
+      link: "#pricing", // Hash link
+    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
