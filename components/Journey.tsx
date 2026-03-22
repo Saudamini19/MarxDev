@@ -141,10 +141,10 @@ export function TimelineDemo() {
               Completed the February Progress Report and submitted for review.
             </div>
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              Final Pitch Prepration: Polishing our strategy and prepping for the product launch.
+              Ready to go into code freeze.
             </div>
             <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
-              Ready to go into code freeze.
+              🎉 Won Final Pitch: Secured victory with our complete, refined business strategy. 🎉
             </div>
           </div>
           { <div className="grid grid-cols-2 gap-4">
@@ -154,6 +154,40 @@ export function TimelineDemo() {
               width={500}
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+                        <img
+              src="/February2.png"
+              alt="Group Picture of the Team"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg bg-white object-contain shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+          </div> }
+        </div>
+      ),
+    },
+             {
+      title: "March",
+      content: (
+        <div>
+          <div className="mb-8 text-xs font-extralight text-white md:text-sm space-y-2">
+            <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
+              Made cosmetic changes based on beta user feedback.
+            </div>
+            <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
+              Added end-user software documentation.
+            </div>
+            <div className="flex items-center gap-2 text-xs text-white md:text-sm font-extralight">
+              Finalized final report and added API documentation.
+            </div>
+          </div>
+          { <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/March.jpg"
+              alt="Group Picture of the Team"
+              width={500}
+              height={500}
+              className="w-full rounded-lg object-contain shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
           </div> }
         </div>

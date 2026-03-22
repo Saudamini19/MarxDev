@@ -23,12 +23,9 @@ export default function Home() {
       <ExpandableCardDemo />
       <Pricing />
       <TeamShowcaseDemo />
-      <div id="journey">
+      <div id="journey" className="mb-24 md:mb-32">
         <TimelineDemo />
       </div>
-      <div></div>
-      <div></div>
-      <div></div>
       <Footer />
     </main>
   );

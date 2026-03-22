@@ -20,10 +20,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   useEffect(() => {
     const updateHeight = () => {
-      if (ref.current && lastCircleRef.current) {
-        const containerRect = ref.current.getBoundingClientRect();
-        const circleRect = lastCircleRef.current.getBoundingClientRect();
-        setHeight(circleRect.top - containerRect.top + circleRect.height / 2);
+      if (ref.current) {
+        // Use the full scroll height of the timeline container
+        setHeight(ref.current.scrollHeight);
       }
     };
 
@@ -33,7 +32,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     const observer = new ResizeObserver(updateHeight);
     if (ref.current) observer.observe(ref.current);
 
-    return () => observer.disconnect();
+    // Recalculate after all resources (images) have loaded
+    window.addEventListener("load", updateHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("load", updateHeight);
+    };
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -57,7 +62,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         </h2>
       </div>
 
-      <div ref={ref} className="relative pb-20">
+      <div ref={ref} className="relative">
         {data.map((item, index) => (
           <div
             key={`timeline-${item.title}-${index}`}
