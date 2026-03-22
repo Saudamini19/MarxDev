@@ -37,23 +37,21 @@ export function WobbleCardDemo() {
         </div>
       </WobbleCard>
       <WobbleCard containerClassName="col-span-1 bg-pink lg:col-span-3 xl:min-h-[300px]">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
-          <div className="max-w-sm relative z-10 shrink-0">
-            <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-              What we do
-            </h2>
-            <p className="mt-4 text-left text-base/6 text-neutral-200">
-              Think of us as the &quot;Autocorrect&quot; for software architecture. You simply describe your idea to our AI, and it instantly draws a perfect, error-free blueprint for you.
-            </p>
-          </div>
-          <img
-            src="/Editor.jpeg"
-            width={500}
-            height={500}
-            alt="linear demo image"
-            className="hidden lg:block object-contain rounded-2xl mt-4 lg:mt-0"
-          />
+        <div className="max-w-sm relative z-10">
+          <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+            What we do
+          </h2>
+          <p className="mt-4 text-left text-base/6 text-neutral-200">
+            Think of us as the &quot;Autocorrect&quot; for software architecture. You simply describe your idea to our AI, and it instantly draws a perfect, error-free blueprint for you.
+          </p>
         </div>
+        <img
+          src="/Editor.jpeg"
+          width={500}
+          height={500}
+          alt="linear demo image"
+          className="absolute -right-4 lg:-right-[5%] hidden lg:block -bottom-10 object-contain rounded-2xl"
+        />
       </WobbleCard>
     </div>
   );
